@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>КИБЕРЩИТ — Цифровая безопасность</title>
     <style>
-        /* ===== ОСНОВА ===== */
         * {
             margin: 0;
             padding: 0;
@@ -18,46 +17,21 @@
             font-family: 'Segoe UI', system-ui, sans-serif;
             line-height: 1.7;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* ===== АНИМИРОВАННЫЙ ФОН ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(88, 101, 242, 0.08), transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(163, 113, 247, 0.05), transparent 50%);
-            z-index: 0;
-            animation: bgFloat 20s infinite alternate ease-in-out;
-        }
-
-        @keyframes bgFloat {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.1) rotate(3deg); }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
-            position: relative;
-            z-index: 2;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             padding: 1.5rem 0;
-            border-bottom: 1px solid #1e1f22;
-            position: relative;
+            border-bottom: 1px solid #21262d;
         }
 
         .logo {
@@ -68,45 +42,9 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* ===== БУРГЕР-МЕНЮ (3 полоски) ===== */
-        .burger {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .burger:hover {
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .burger span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background: #e6edf3;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
-        .burger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-
-        /* ===== НАВИГАЦИЯ ===== */
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
@@ -114,22 +52,19 @@
             color: #8b949e;
             text-decoration: none;
             font-weight: 500;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .nav a:hover {
             color: #58a6ff;
         }
 
-        /* ===== ГЛАВНЫЙ ЭКРАН ===== */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
-            background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.04), transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05), transparent 70%);
             border-radius: 30px;
             margin: 1rem 0 2rem 0;
-            animation: fadeUp 0.8s ease forwards;
-            opacity: 0;
         }
 
         .hero h1 {
@@ -140,7 +75,6 @@
 
         .hero h1 .highlight {
             color: #58a6ff;
-            text-shadow: 0 0 30px rgba(88, 166, 255, 0.3);
         }
 
         .hero p {
@@ -162,7 +96,7 @@
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.25s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -190,15 +124,11 @@
             border-color: #8b949e;
         }
 
-        /* ===== ТРИ КУБА ===== */
         .three-cubes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
-            animation: fadeUp 0.8s ease forwards;
-            opacity: 0;
-            animation-delay: 0.2s;
         }
 
         .cube {
@@ -251,16 +181,41 @@
             display: inline-block;
         }
 
-        /* ===== ФУТЕР ===== */
+        .section {
+            padding: 3rem 0;
+            border-top: 1px solid #21262d;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #58a6ff;
+        }
+
+        .section p,
+        .section li {
+            color: #c9d1d9;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li::before {
+            content: "▸ ";
+            color: #58a6ff;
+        }
+
         .footer {
             border-top: 1px solid #21262d;
             padding: 2rem 0;
             text-align: center;
             color: #8b949e;
             font-size: 0.9rem;
-            animation: fadeUp 0.8s ease forwards;
-            opacity: 0;
-            animation-delay: 0.4s;
         }
 
         .footer a {
@@ -272,17 +227,20 @@
             text-decoration: underline;
         }
 
-        /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+        .fade-in {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+        }
+
         @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
+            0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 600px) {
             .header {
-                flex-direction: row;
-                gap: 0;
+                flex-direction: column;
+                gap: 1rem;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -290,27 +248,6 @@
             .three-cubes {
                 grid-template-columns: 1fr;
             }
-            .nav {
-                display: none;
-            }
-            .nav.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                right: 0;
-                background: #161b22;
-                padding: 1.5rem;
-                border-radius: 12px;
-                border: 1px solid #30363d;
-                width: 200px;
-                z-index: 10;
-            }
-        }
-
-        /* ===== ЭФФЕКТ СВЕЧЕНИЯ ===== */
-        .glow {
-            text-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
         }
     </style>
 </head>
@@ -318,43 +255,34 @@
 
     <div class="container">
 
-        <!-- ===== ШАПКА ===== -->
-        <header class="header">
+        <header class="header fade-in">
             <div class="logo">КИБЕРЩИТ</div>
-            <div class="burger" id="burger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav class="nav" id="nav">
-                <a href="#">Главная</a>
-                <a href="#">О проекте</a>
-                <a href="#">Контакты</a>
+            <nav class="nav">
+                <a href="#security">Безопасность</a>
+                <a href="#beginners">Новичкам</a>
+                <a href="#links">Ссылки</a>
             </nav>
         </header>
 
-        <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
-        <section class="hero">
+        <section class="hero fade-in">
             <h1>КИБЕРЩИТ <span class="highlight">Портал безопасности</span></h1>
             <p>Всё, что нужно знать о цифровой безопасности, в одном месте.</p>
             <div class="btn-group">
-                <a href="#" class="btn btn-primary">Начать</a>
-                <a href="#" class="btn btn-secondary">Читать</a>
+                <a href="#security" class="btn btn-primary">Начать</a>
+                <a href="#beginners" class="btn btn-secondary">Читать</a>
             </div>
         </section>
 
-        <!-- ===== ТРИ КУБА ===== -->
-        <section class="three-cubes">
+        <!-- ===== ТРИ КУБА (ВЕДУТ НА РАЗДЕЛЫ) ===== -->
+        <section class="three-cubes fade-in">
             <div class="cube">
                 <h3>📖 Всё о безопасности</h3>
                 <ul>
                     <li>Правила безопасности (пароли, 2FA, VPN)</li>
                     <li>Угрозы: доксинг, сватинг, OSINT, фишинг</li>
                     <li>Как защитить себя и свои данные</li>
-                    <li>Инструменты: генератор паролей, чек-лист</li>
-                    <li>Советы по анонимности и шифрованию</li>
                 </ul>
-                <a href="#" class="btn btn-secondary">Подробнее</a>
+                <a href="#security" class="btn btn-secondary">Подробнее →</a>
             </div>
 
             <div class="cube">
@@ -363,10 +291,8 @@
                     <li>С чего начать: первые шаги в безопасности</li>
                     <li>Что делать, если взломали аккаунт</li>
                     <li>Как проверить свои данные на утечки</li>
-                    <li>Простые инструкции по настройке VPN</li>
-                    <li>Как не попасться на фишинг</li>
                 </ul>
-                <a href="#" class="btn btn-secondary">Подробнее</a>
+                <a href="#beginners" class="btn btn-secondary">Подробнее →</a>
             </div>
 
             <div class="cube">
@@ -375,30 +301,77 @@
                     <li>Tor Browser — анонимный браузер</li>
                     <li>ProtonMail — приватная почта</li>
                     <li>HaveIBeenPwned — проверка утечек</li>
-                    <li>Наш Telegram-канал</li>
-                    <li>GitHub проекта</li>
                 </ul>
-                <a href="#" class="btn btn-secondary">Перейти</a>
+                <a href="#links" class="btn btn-secondary">Перейти →</a>
             </div>
         </section>
 
-        <!-- ===== ФУТЕР ===== -->
-        <footer class="footer">
-            <p>Сделано с 🔥 · <a href="#">GitHub</a> · <a href="#">Telegram</a></p>
+        <!-- ===== РАЗДЕЛ 1: БЕЗОПАСНОСТЬ ===== -->
+        <section id="security" class="section fade-in">
+            <h2 class="section-title">📖 Всё о безопасности</h2>
+            <p><strong>Правила безопасности:</strong></p>
+            <ul>
+                <li>Используйте уникальные пароли для каждого сервиса.</li>
+                <li>Включите двухфакторную аутентификацию (2FA).</li>
+                <li>Используйте VPN на публичных Wi-Fi сетях.</li>
+                <li>Регулярно обновляйте программы и систему.</li>
+            </ul>
+            <p><strong>Угрозы:</strong></p>
+            <ul>
+                <li><strong>Доксинг</strong> — сбор и публикация личной информации без согласия.</li>
+                <li><strong>Сватинг</strong> — ложный вызов спецслужб по вашему адресу.</li>
+                <li><strong>OSINT</strong> — сбор информации из открытых источников.</li>
+                <li><strong>Фишинг</strong> — поддельные ссылки и письма.</li>
+            </ul>
+            <p><strong>Как защитить себя:</strong></p>
+            <ul>
+                <li>Не публикуйте личные данные в открытых профилях.</li>
+                <li>Проверяйте ссылки перед переходом.</li>
+                <li>Не сообщайте коды из SMS.</li>
+            </ul>
+        </section>
+
+        <!-- ===== РАЗДЕЛ 2: НОВИЧКАМ ===== -->
+        <section id="beginners" class="section fade-in">
+            <h2 class="section-title">🚀 Для новичков</h2>
+            <p><strong>С чего начать:</strong></p>
+            <ul>
+                <li>Установите менеджер паролей (Bitwarden, KeePass).</li>
+                <li>Включите 2FA на всех важных аккаунтах.</li>
+                <li>Настройте VPN (ProtonVPN, Mullvad).</li>
+            </ul>
+            <p><strong>Что делать, если взломали аккаунт:</strong></p>
+            <ul>
+                <li>Немедленно смените пароль.</li>
+                <li>Включите 2FA, если ещё не включена.</li>
+                <li>Проверьте, не было ли несанкционированных действий.</li>
+                <li>Сообщите в поддержку сервиса.</li>
+            </ul>
+            <p><strong>Как проверить свои данные на утечки:</strong></p>
+            <ul>
+                <li>Зайдите на <a href="https://haveibeenpwned.com" target="_blank" style="color: #58a6ff;">haveibeenpwned.com</a> и введите свой email.</li>
+                <li>Если данные найдены — смените пароли на всех сервисах.</li>
+            </ul>
+        </section>
+
+        <!-- ===== РАЗДЕЛ 3: ССЫЛКИ ===== -->
+        <section id="links" class="section fade-in">
+            <h2 class="section-title">🔗 Полезные ссылки</h2>
+            <ul>
+                <li><a href="https://www.torproject.org/" target="_blank" style="color: #58a6ff;">Tor Browser</a> — анонимный браузер</li>
+                <li><a href="https://protonmail.com/" target="_blank" style="color: #58a6ff;">ProtonMail</a> — приватная почта</li>
+                <li><a href="https://haveibeenpwned.com/" target="_blank" style="color: #58a6ff;">HaveIBeenPwned</a> — проверка утечек</li>
+                <li><a href="https://t.me/+-aVvyGj1BRBhNGUy" target="_blank" style="color: #58a6ff;">Наш Telegram-канал</a></li>
+                <li><a href="https://github.com/jarvisosint6e1hs" target="_blank" style="color: #58a6ff;">GitHub проекта</a></li>
+            </ul>
+        </section>
+
+        <footer class="footer fade-in">
+            <p>Сделано с 🔥 · <a href="https://github.com/jarvisosint6e1hs">GitHub</a> · <a href="https://t.me/+-aVvyGj1BRBhNGUy">Telegram</a></p>
             <p style="margin-top: 0.4rem; font-size: 0.8rem;">КИБЕРЩИТ — знание защищает.</p>
         </footer>
 
     </div>
-
-    <!-- ===== СКРИПТ ДЛЯ БУРГЕР-МЕНЮ ===== -->
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('nav');
-            const burger = document.getElementById('burger');
-            nav.classList.toggle('active');
-            burger.classList.toggle('active');
-        }
-    </script>
 
 </body>
 </html>
