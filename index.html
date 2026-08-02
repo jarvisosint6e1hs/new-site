@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КИБЕРЩИТ — Данные. Свобода. Безопасность.</title>
+    <title>КИБЕРЩИТ — Учебник по цифровой безопасности</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             background: #0a0e14;
             color: #e6edf3;
             font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .container {
@@ -24,6 +24,7 @@
             padding: 0 1.5rem;
         }
 
+        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -43,7 +44,7 @@
 
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
@@ -58,6 +59,7 @@
             color: #58a6ff;
         }
 
+        /* ===== ГЛАВНАЯ ===== */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
@@ -83,89 +85,7 @@
             margin: 0 auto 2rem;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.25s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: #238636;
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #2ea043;
-            transform: scale(1.04);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #e6edf3;
-            border: 1px solid #30363d;
-        }
-
-        .btn-secondary:hover {
-            background: #21262d;
-            border-color: #8b949e;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: 0.3s ease;
-            text-decoration: none;
-            color: #e6edf3;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #58a6ff;
-            box-shadow: 0 12px 30px rgba(88, 166, 255, 0.08);
-        }
-
-        .card .icon {
-            font-size: 3.2rem;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #8b949e;
-        }
-
+        /* ===== РАЗДЕЛЫ ===== */
         .section {
             padding: 3rem 0;
             border-top: 1px solid #21262d;
@@ -174,16 +94,36 @@
         .section-title {
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: #58a6ff;
         }
 
-        .about-text {
-            color: #8b949e;
-            max-width: 700px;
-            font-size: 1.1rem;
+        .section p,
+        .section li {
+            color: #c9d1d9;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
         }
 
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li::before {
+            content: "▸ ";
+            color: #58a6ff;
+        }
+
+        .highlight-box {
+            background: #161b22;
+            border-left: 4px solid #58a6ff;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        /* ===== КОНТАКТЫ ===== */
         .contacts {
             display: flex;
             gap: 2rem;
@@ -195,14 +135,13 @@
             color: #58a6ff;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: 0.2s;
         }
 
         .contacts a:hover {
             text-decoration: underline;
-            color: #8b949e;
         }
 
+        /* ===== ФУТЕР ===== */
         .footer {
             border-top: 1px solid #21262d;
             padding: 2rem 0;
@@ -220,6 +159,7 @@
             text-decoration: underline;
         }
 
+        /* ===== АНИМАЦИЯ ===== */
         .fade-in {
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
@@ -235,6 +175,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 600px) {
             .header {
                 flex-direction: column;
@@ -248,10 +189,6 @@
             .section-title {
                 font-size: 1.6rem;
             }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -259,64 +196,123 @@
 
     <div class="container">
 
+        <!-- ШАПКА -->
         <header class="header fade-in">
             <div class="logo">КИБЕРЩИТ</div>
             <nav class="nav">
-                <a href="#">Главная</a>
-                <a href="#">О нас</a>
-                <a href="#">Контакты</a>
+                <a href="#doxing">Доксинг</a>
+                <a href="#swatting">Сватинг</a>
+                <a href="#osint">OSINT</a>
+                <a href="#scams">Мошенники</a>
+                <a href="#protection">Защита</a>
+                <a href="#anonymity">Анонимность</a>
+                <a href="#contacts">Контакты</a>
             </nav>
         </header>
 
+        <!-- ГЛАВНАЯ -->
         <section class="hero fade-in">
-            <h1>Данные. <span class="highlight">Свобода.</span> Безопасность.</h1>
-            <p>Мы создаём инструменты для тех, кто ищет правду в открытых данных и защищает своё пространство.</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary">🔗 Telegram</a>
-                <a href="#" class="btn btn-secondary">🐙 GitHub</a>
+            <h1>КИБЕРЩИТ <span class="highlight">Учебник</span></h1>
+            <p>Всё, что нужно знать о цифровой безопасности, чтобы не стать жертвой в сети.</p>
+        </section>
+
+        <!-- ДОКСИНГ -->
+        <section id="doxing" class="section fade-in">
+            <h2 class="section-title">Что такое доксинг?</h2>
+            <p>Доксинг — это сбор и публикация личной информации о человеке (адрес, телефон, место работы, фото) без его согласия. Часто используется для запугивания, шантажа или мести.</p>
+            <div class="highlight-box">
+                <strong>Как защититься:</strong>
+                <ul>
+                    <li>Не публикуйте личные данные в открытых профилях.</li>
+                    <li>Используйте разные никнеймы для разных сервисов.</li>
+                    <li>Не связывайте аккаунты между собой (например, почта и соцсети).</li>
+                    <li>Регулярно проверяйте, что о вас можно найти в поиске.</li>
+                </ul>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title fade-in">Что мы делаем</h2>
-            <div class="cards">
-                <div class="card fade-in">
-                    <span class="icon">🔍</span>
-                    <h3>Открытые данные</h3>
-                    <p>Анализ и поиск информации из публичных источников.</p>
-                </div>
-                <div class="card fade-in">
-                    <span class="icon">🛡️</span>
-                    <h3>Кибербезопасность</h3>
-                    <p>Защита данных и цифровая гигиена.</p>
-                </div>
-                <div class="card fade-in">
-                    <span class="icon">⚡</span>
-                    <h3>Автоматизация</h3>
-                    <p>Скрипты и боты для упрощения рутины.</p>
-                </div>
+        <!-- СВАТИНГ -->
+        <section id="swatting" class="section fade-in">
+            <h2 class="section-title">Что такое сватинг?</h2>
+            <p>Сватинг — это ложный вызов спецслужб (полиции, SWAT) по адресу жертвы, чтобы вызвать силовую реакцию. Часто делается по IP-адресу или через доксинг.</p>
+            <div class="highlight-box">
+                <strong>Как избежать:</strong>
+                <ul>
+                    <li>Не показывайте свой реальный IP в играх или чатах.</li>
+                    <li>Используйте VPN на всех устройствах.</li>
+                    <li>Не давайте незнакомцам свои адрес или геоданные.</li>
+                </ul>
             </div>
         </section>
 
-        <section class="section fade-in">
-            <h2 class="section-title">О нас</h2>
-            <p class="about-text">
-                КИБЕРЩИТ — это независимый проект, объединяющий людей, которые ценят свободу информации, цифровую безопасность и честные данные. Мы не следуем трендам — мы создаём смыслы.
-            </p>
+        <!-- OSINT -->
+        <section id="osint" class="section fade-in">
+            <h2 class="section-title">OSINT и ваши данные</h2>
+            <p>OSINT (Open Source Intelligence) — сбор информации из открытых источников. С его помощью можно узнать о вас: телефон, адрес, родственников, место работы.</p>
+            <div class="highlight-box">
+                <strong>Как скрыть свои следы:</strong>
+                <ul>
+                    <li>Закройте профили в соцсетях от посторонних.</li>
+                    <li>Не используйте одно и то же фото на всех площадках.</li>
+                    <li>Удаляйте старые аккаунты, которые больше не используете.</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="section fade-in">
+        <!-- МОШЕННИКИ -->
+        <section id="scams" class="section fade-in">
+            <h2 class="section-title">Мошеннические схемы</h2>
+            <p>Фишинг, фальшивые ссылки, поддельные сайты, звонки от "банков" — это всё инструменты мошенников. Они выманивают деньги, пароли, доступ к аккаунтам.</p>
+            <div class="highlight-box">
+                <strong>Как не попасться:</strong>
+                <ul>
+                    <li>Никогда не переходите по ссылкам из подозрительных сообщений.</li>
+                    <li>Проверяйте адрес сайта перед вводом данных.</li>
+                    <li>Используйте двухфакторную аутентификацию (2FA).</li>
+                    <li>Не сообщайте никому коды из SMS.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЗАЩИТА -->
+        <section id="protection" class="section fade-in">
+            <h2 class="section-title">Общая защита</h2>
+            <p>Цифровая безопасность — это привычка. Вот базовые правила, которые работают всегда:</p>
+            <ul>
+                <li>Уникальные пароли для каждого сервиса (используйте менеджер паролей).</li>
+                <li>Включите двухфакторную аутентификацию везде, где это возможно.</li>
+                <li>Не используйте публичные Wi-Fi без VPN.</li>
+                <li>Регулярно обновляйте программы и операционную систему.</li>
+                <li>Не открывайте вложения от незнакомцев.</li>
+            </ul>
+        </section>
+
+        <!-- АНОНИМНОСТЬ -->
+        <section id="anonymity" class="section fade-in">
+            <h2 class="section-title">Анонимность в сети</h2>
+            <p>Полная анонимность — это миф, но можно значительно усложнить отслеживание:</p>
+            <ul>
+                <li>Используйте Tor или VPN с политикой отсутствия логов.</li>
+                <li>Не входите в личные аккаунты через Tor, если это не нужно.</li>
+                <li>Отключите геолокацию в браузере и приложениях.</li>
+                <li>Используйте приватные почтовые сервисы (ProtonMail и т.п.).</li>
+            </ul>
+        </section>
+
+        <!-- КОНТАКТЫ -->
+        <section id="contacts" class="section fade-in">
             <h2 class="section-title">Контакты</h2>
             <div class="contacts">
-                <a href="#">📱 Telegram</a>
-                <a href="#">📧 Почта</a>
-                <a href="#">🐙 GitHub</a>
+                <a href="#">Telegram</a>
+                <a href="#">Почта</a>
+                <a href="#">GitHub</a>
             </div>
         </section>
 
+        <!-- ФУТЕР -->
         <footer class="footer fade-in">
             <p>Сделано с 🔥 · <a href="#">GitHub</a> · <a href="#">Telegram</a></p>
-            <p style="margin-top: 0.4rem; font-size: 0.8rem;">КИБЕРЩИТ — это не просто слова.</p>
+            <p style="margin-top: 0.4rem; font-size: 0.8rem;">КИБЕРЩИТ — знание защищает.</p>
         </footer>
 
     </div>
