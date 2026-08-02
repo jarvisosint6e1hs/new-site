@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КИБЕРЩИТ — Учебник по цифровой безопасности</title>
+    <title>КИБЕРЩИТ — Цифровая безопасность</title>
     <style>
         * {
             margin: 0;
@@ -19,12 +19,11 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -59,18 +58,18 @@
             color: #58a6ff;
         }
 
-        /* ===== ГЛАВНАЯ ===== */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
-            background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.04), transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.05), transparent 70%);
             border-radius: 30px;
+            margin: 1rem 0 2rem 0;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero h1 .highlight {
@@ -82,10 +81,122 @@
             font-size: 1.2rem;
             color: #8b949e;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.8rem;
         }
 
-        /* ===== РАЗДЕЛЫ ===== */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #238636;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #2ea043;
+            transform: scale(1.04);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e6edf3;
+            border: 1px solid #30363d;
+        }
+        .btn-secondary:hover {
+            background: #21262d;
+            border-color: #8b949e;
+        }
+
+        .three-windows {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .window-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .window-card:hover {
+            transform: translateY(-8px);
+            border-color: #58a6ff;
+            box-shadow: 0 12px 30px rgba(88, 166, 255, 0.08);
+        }
+
+        .window-card .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .window-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #58a6ff;
+        }
+
+        .window-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .window-card ul li::before {
+            content: "▸ ";
+            color: #58a6ff;
+        }
+
+        .window-card ul li {
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .threat-counter {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .threat-counter .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #58a6ff;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
         .section {
             padding: 3rem 0;
             border-top: 1px solid #21262d;
@@ -94,7 +205,7 @@
         .section-title {
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #58a6ff;
         }
 
@@ -123,25 +234,90 @@
             border-radius: 8px;
         }
 
-        /* ===== КОНТАКТЫ ===== */
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .blog-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: #58a6ff;
+        }
+        .blog-card h4 {
+            color: #58a6ff;
+            margin-bottom: 0.5rem;
+        }
+        .blog-card p {
+            color: #8b949e;
+            font-size: 0.95rem;
+        }
+
+        .checklist {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #21262d;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #238636;
+            cursor: pointer;
+        }
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .review {
+            background: #161b22;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid #30363d;
+            font-style: italic;
+            color: #c9d1d9;
+        }
+        .review span {
+            display: block;
+            margin-top: 0.5rem;
+            color: #8b949e;
+            font-style: normal;
+            font-weight: 500;
+        }
+
         .contacts {
             display: flex;
             gap: 2rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .contacts a {
             color: #58a6ff;
             text-decoration: none;
             font-size: 1.2rem;
         }
-
         .contacts a:hover {
             text-decoration: underline;
         }
 
-        /* ===== ФУТЕР ===== */
         .footer {
             border-top: 1px solid #21262d;
             padding: 2rem 0;
@@ -149,22 +325,18 @@
             color: #8b949e;
             font-size: 0.9rem;
         }
-
         .footer a {
             color: #58a6ff;
             text-decoration: none;
         }
-
         .footer a:hover {
             text-decoration: underline;
         }
 
-        /* ===== АНИМАЦИЯ ===== */
         .fade-in {
             opacity: 0;
             animation: fadeUp 0.8s ease forwards;
         }
-
         .fade-in:nth-child(2) { animation-delay: 0.1s; }
         .fade-in:nth-child(3) { animation-delay: 0.2s; }
         .fade-in:nth-child(4) { animation-delay: 0.3s; }
@@ -175,19 +347,19 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 600px) {
             .header {
                 flex-direction: column;
                 gap: 1rem;
             }
-
             .hero h1 {
                 font-size: 2.2rem;
             }
-
             .section-title {
                 font-size: 1.6rem;
+            }
+            .three-windows {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -212,20 +384,64 @@
 
         <!-- ГЛАВНАЯ -->
         <section class="hero fade-in">
-            <h1>КИБЕРЩИТ <span class="highlight">Учебник</span></h1>
-            <p>Всё, что нужно знать о цифровой безопасности, чтобы не стать жертвой в сети.</p>
+            <h1>КИБЕРЩИТ <span class="highlight">Портал безопасности</span></h1>
+            <p>Учебник, инструменты и практические советы, чтобы защитить себя в сети.</p>
+            <div class="btn-group">
+                <a href="#checklist" class="btn btn-primary">Проверить безопасность</a>
+                <a href="#blog" class="btn btn-secondary">Читать статьи</a>
+            </div>
         </section>
+
+        <!-- ТРИ ОКНА -->
+        <section class="three-windows fade-in">
+            <div class="window-card">
+                <span class="icon">📖</span>
+                <h3>Правила безопасности</h3>
+                <ul>
+                    <li>Уникальные пароли для всех сервисов</li>
+                    <li>Двухфакторная аутентификация (2FA)</li>
+                    <li>Использование VPN на публичных сетях</li>
+                    <li>Регулярное обновление ПО</li>
+                </ul>
+            </div>
+            <div class="window-card">
+                <span class="icon">🛡️</span>
+                <h3>Как защитить себя</h3>
+                <ul>
+                    <li>Проверьте утечки данных</li>
+                    <li>Смените пароли на всех аккаунтах</li>
+                    <li>Включите 2FA везде, где можно</li>
+                    <li>Настройте VPN и приватный браузер</li>
+                </ul>
+            </div>
+            <div class="window-card">
+                <span class="icon">🚨</span>
+                <h3>Если уже взломали</h3>
+                <ul>
+                    <li>Немедленно смените пароли</li>
+                    <li>Заблокируйте банковские карты</li>
+                    <li>Сообщите в поддержку сервисов</li>
+                    <li>Сохраните логи и доказательства</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- СЧЁТЧИК -->
+        <div class="threat-counter fade-in">
+            <p>Зафиксировано угроз в этом месяце:</p>
+            <div class="number">12 847</div>
+            <p style="color: #8b949e; font-size: 0.9rem; margin-top: 0.5rem;">Данные обновляются в реальном времени</p>
+        </div>
 
         <!-- ДОКСИНГ -->
         <section id="doxing" class="section fade-in">
             <h2 class="section-title">Что такое доксинг?</h2>
-            <p>Доксинг — это сбор и публикация личной информации о человеке (адрес, телефон, место работы, фото) без его согласия. Часто используется для запугивания, шантажа или мести.</p>
+            <p>Доксинг — это сбор и публикация личной информации без согласия человека. Часто используется для шантажа, мести или давления.</p>
             <div class="highlight-box">
                 <strong>Как защититься:</strong>
                 <ul>
                     <li>Не публикуйте личные данные в открытых профилях.</li>
                     <li>Используйте разные никнеймы для разных сервисов.</li>
-                    <li>Не связывайте аккаунты между собой (например, почта и соцсети).</li>
                     <li>Регулярно проверяйте, что о вас можно найти в поиске.</li>
                 </ul>
             </div>
@@ -234,13 +450,12 @@
         <!-- СВАТИНГ -->
         <section id="swatting" class="section fade-in">
             <h2 class="section-title">Что такое сватинг?</h2>
-            <p>Сватинг — это ложный вызов спецслужб (полиции, SWAT) по адресу жертвы, чтобы вызвать силовую реакцию. Часто делается по IP-адресу или через доксинг.</p>
+            <p>Сватинг — это ложный вызов спецслужб по вашему адресу. Может привести к реальной опасности.</p>
             <div class="highlight-box">
                 <strong>Как избежать:</strong>
                 <ul>
-                    <li>Не показывайте свой реальный IP в играх или чатах.</li>
-                    <li>Используйте VPN на всех устройствах.</li>
-                    <li>Не давайте незнакомцам свои адрес или геоданные.</li>
+                    <li>Скрывайте свой IP через VPN.</li>
+                    <li>Не сообщайте незнакомцам свой адрес.</li>
                 </ul>
             </div>
         </section>
@@ -248,13 +463,12 @@
         <!-- OSINT -->
         <section id="osint" class="section fade-in">
             <h2 class="section-title">OSINT и ваши данные</h2>
-            <p>OSINT (Open Source Intelligence) — сбор информации из открытых источников. С его помощью можно узнать о вас: телефон, адрес, родственников, место работы.</p>
+            <p>OSINT — сбор информации из открытых источников. С его помощью можно узнать о вас почти всё.</p>
             <div class="highlight-box">
-                <strong>Как скрыть свои следы:</strong>
+                <strong>Как скрыть следы:</strong>
                 <ul>
-                    <li>Закройте профили в соцсетях от посторонних.</li>
-                    <li>Не используйте одно и то же фото на всех площадках.</li>
-                    <li>Удаляйте старые аккаунты, которые больше не используете.</li>
+                    <li>Закройте профили в соцсетях.</li>
+                    <li>Не используйте одинаковые фото на разных площадках.</li>
                 </ul>
             </div>
         </section>
@@ -262,14 +476,13 @@
         <!-- МОШЕННИКИ -->
         <section id="scams" class="section fade-in">
             <h2 class="section-title">Мошеннические схемы</h2>
-            <p>Фишинг, фальшивые ссылки, поддельные сайты, звонки от "банков" — это всё инструменты мошенников. Они выманивают деньги, пароли, доступ к аккаунтам.</p>
+            <p>Фишинг, поддельные ссылки, звонки от "банков" — это классика.</p>
             <div class="highlight-box">
                 <strong>Как не попасться:</strong>
                 <ul>
-                    <li>Никогда не переходите по ссылкам из подозрительных сообщений.</li>
-                    <li>Проверяйте адрес сайта перед вводом данных.</li>
-                    <li>Используйте двухфакторную аутентификацию (2FA).</li>
-                    <li>Не сообщайте никому коды из SMS.</li>
+                    <li>Проверяйте ссылки перед переходом.</li>
+                    <li>Включите двухфакторную аутентификацию.</li>
+                    <li>Никогда не сообщайте коды из SMS.</li>
                 </ul>
             </div>
         </section>
@@ -277,26 +490,76 @@
         <!-- ЗАЩИТА -->
         <section id="protection" class="section fade-in">
             <h2 class="section-title">Общая защита</h2>
-            <p>Цифровая безопасность — это привычка. Вот базовые правила, которые работают всегда:</p>
             <ul>
-                <li>Уникальные пароли для каждого сервиса (используйте менеджер паролей).</li>
-                <li>Включите двухфакторную аутентификацию везде, где это возможно.</li>
+                <li>Уникальные пароли для каждого сервиса.</li>
+                <li>Двухфакторная аутентификация (2FA).</li>
+                <li>Обновляйте программы и систему.</li>
                 <li>Не используйте публичные Wi-Fi без VPN.</li>
-                <li>Регулярно обновляйте программы и операционную систему.</li>
-                <li>Не открывайте вложения от незнакомцев.</li>
             </ul>
         </section>
 
         <!-- АНОНИМНОСТЬ -->
         <section id="anonymity" class="section fade-in">
             <h2 class="section-title">Анонимность в сети</h2>
-            <p>Полная анонимность — это миф, но можно значительно усложнить отслеживание:</p>
             <ul>
-                <li>Используйте Tor или VPN с политикой отсутствия логов.</li>
-                <li>Не входите в личные аккаунты через Tor, если это не нужно.</li>
-                <li>Отключите геолокацию в браузере и приложениях.</li>
-                <li>Используйте приватные почтовые сервисы (ProtonMail и т.п.).</li>
+                <li>Используйте Tor или VPN без логов.</li>
+                <li>Отключите геолокацию в браузере.</li>
+                <li>Используйте приватные почтовые сервисы (ProtonMail).</li>
             </ul>
+        </section>
+
+        <!-- ЧЕК-ЛИСТ -->
+        <section id="checklist" class="section fade-in">
+            <h2 class="section-title">Чек-лист безопасности</h2>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" /> Использую менеджер паролей
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" /> Включена 2FA на всех важных аккаунтах
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" /> Не использую публичные Wi-Fi без VPN
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" /> Проверил свои утечки через haveibeenpwned
+                </div>
+            </div>
+            <p style="color: #8b949e; margin-top: 1rem;">Отмечайте пункты — это ваш первый шаг к защите.</p>
+        </section>
+
+        <!-- СТАТЬИ -->
+        <section id="blog" class="section fade-in">
+            <h2 class="section-title">Статьи</h2>
+            <div class="blog-cards">
+                <div class="blog-card">
+                    <h4>Как не попасться на фишинг</h4>
+                    <p>Разбираем реальные примеры писем и ссылок.</p>
+                </div>
+                <div class="blog-card">
+                    <h4>Настройка VPN для новичков</h4>
+                    <p>Пошаговая инструкция по выбору и установке.</p>
+                </div>
+                <div class="blog-card">
+                    <h4>Что такое цифровой след и как его уменьшить</h4>
+                    <p>Практические советы для каждого.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ОТЗЫВЫ -->
+        <section class="section fade-in">
+            <h2 class="section-title">Что говорят</h2>
+            <div class="reviews">
+                <div class="review">
+                    "После того как я прочитал раздел про доксинг, я закрыл все свои старые профили."
+                    <span>— Алексей, 28 лет</span>
+                </div>
+                <div class="review">
+                    "Чек-лист помог мне понять, что я вообще ничего не делал для своей безопасности."
+                    <span>— Мария, 32 года</span>
+                </div>
+            </div>
         </section>
 
         <!-- КОНТАКТЫ -->
@@ -316,6 +579,11 @@
         </footer>
 
     </div>
+
+    <!-- ===== МУЗЫКА ===== -->
+    <audio autoplay loop volume="0.3">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
 </body>
 </html>
