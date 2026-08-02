@@ -251,10 +251,93 @@
                 font-size: 1.6rem;
             }
         }
+
+        /* ===== ЗВЁЗДНЫЙ ФОН ===== */
+        #star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all 0.2s ease;
+            animation: twinkle 3s infinite alternate;
+        }
+        .star:hover {
+            transform: scale(1.8);
+            box-shadow: 0 0 20px #58a6ff;
+        }
+        .star:active {
+            transform: scale(3);
+            box-shadow: 0 0 40px #58a6ff;
+            background: #58a6ff;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
     </style>
 </head>
 <body>
 
+    <!-- ===== ЗВЁЗДНЫЙ ФОН ===== -->
+    <div id="star-field"></div>
+    <script>
+        const starField = document.getElementById('star-field');
+        const starCount = 80;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 5 + 2;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            star.dataset.clicked = 'false';
+
+            star.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (this.dataset.clicked === 'true') return;
+                this.dataset.clicked = 'true';
+                this.style.transform = 'scale(4)';
+                this.style.boxShadow = '0 0 60px #58a6ff';
+                this.style.background = '#58a6ff';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                    this.style.background = '#fff';
+                    this.dataset.clicked = 'false';
+                }, 500);
+            });
+
+            starField.appendChild(star);
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            document.querySelectorAll('.star').forEach((star, index) => {
+                const speed = (index % 3 + 1) * 1.2;
+                const dx = x * speed * 2;
+                const dy = y * speed * 2;
+                star.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+        });
+    </script>
+
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
     <div class="container">
 
         <header class="header fade-in">
