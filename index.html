@@ -1,1 +1,221 @@
-<h1>Сайт работает</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J.A.R.V.I.S — Новая эра</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0e14;
+            color: #e6edf3;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 1rem;
+        }
+        .logo {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #a371f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo span {
+            font-weight: 300;
+            -webkit-text-fill-color: #8b949e;
+        }
+        .badge {
+            background: #238636;
+            color: #fff;
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .hero {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .hero h1 .highlight {
+            color: #58a6ff;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto 1.8rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: #238636;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #2ea043;
+            transform: scale(1.04);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #e6edf3;
+            border: 1px solid #30363d;
+        }
+        .btn-secondary:hover {
+            background: #21262d;
+            border-color: #8b949e;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 3rem;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: 0.3s ease;
+            text-decoration: none;
+            color: #e6edf3;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #58a6ff;
+            box-shadow: 0 8px 24px rgba(88, 166, 255, 0.12);
+        }
+        .card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+        .footer {
+            border-top: 1px solid #21262d;
+            padding-top: 1.8rem;
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.2s; }
+        .fade-in:nth-child(4) { animation-delay: 0.3s; }
+        .fade-in:nth-child(5) { animation-delay: 0.4s; }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .logo { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header fade-in">
+            <div class="logo">J.A.R.V.I.S <span>• NEW</span></div>
+            <div class="badge">v3.0</div>
+        </header>
+        <section class="hero fade-in">
+            <h1>Новый <span class="highlight">сайт</span>. Новая <span class="highlight">эра</span>.</h1>
+            <p>Современный дизайн, чистый код, никакой воды.</p>
+            <div class="btn-group">
+                <a href="https://t.me/your_bot" class="btn btn-primary">🤖 Telegram</a>
+                <a href="https://github.com/jarvisosint6e1hs" class="btn btn-secondary">📂 GitHub</a>
+            </div>
+        </section>
+        <div class="cards">
+            <a href="#" class="card fade-in">
+                <div class="icon">🕵️</div>
+                <h3>OSINT</h3>
+                <p>Разведка по открытым данным.</p>
+            </a>
+            <a href="#" class="card fade-in">
+                <div class="icon">🤖</div>
+                <h3>J.A.R.V.I.S</h3>
+                <p>Управление ПК и автоматизация.</p>
+            </a>
+            <a href="#" class="card fade-in">
+                <div class="icon">🌐</div>
+                <h3>Dark Web</h3>
+                <p>Поисковики .onion и анонимность.</p>
+            </a>
+            <a href="#" class="card fade-in">
+                <div class="icon">⚡</div>
+                <h3>Void Tools</h3>
+                <p>150+ инструментов в терминале.</p>
+            </a>
+        </div>
+        <footer class="footer fade-in">
+            <p>Сделано с 🔥 в Кыргызстане · <a href="https://github.com/jarvisosint6e1hs">GitHub</a> · <a href="#">Telegram</a></p>
+            <p style="margin-top: 0.4rem; font-size: 0.8rem;">J.A.R.V.I.S — не ИИ, а философия.</p>
+        </footer>
+    </div>
+</body>
+</html>
